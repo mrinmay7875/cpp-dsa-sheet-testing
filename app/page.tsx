@@ -455,6 +455,21 @@ export default function Home() {
     }
   }, []);
 
+  // Testimonial modal handlers
+  const handleOpenTestimonialModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Listen for custom event from hamburger menu to open testimonial modal
+  useEffect(() => {
+
+    window.addEventListener('openTestimonialModal', handleOpenTestimonialModal);
+    
+    return () => {
+      window.removeEventListener('openTestimonialModal', handleOpenTestimonialModal);
+    };
+  }, []);
+
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
