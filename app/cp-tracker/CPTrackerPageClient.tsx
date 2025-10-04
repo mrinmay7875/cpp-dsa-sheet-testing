@@ -172,6 +172,16 @@ export default function CPTrackerPageClient() {
         </motion.div>
 
         <div className="max-w-md mx-auto">
+          {/* Platform selection message */}
+          {!selectedPlatform && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="w-full text-center text-gray-400 mb-4"
+            >
+              Please select a platform to get started
+            </motion.p>
+          )}
           <motion.div className="flex flex-wrap justify-center gap-4 mb-8">
             {platforms.map(({ key, label }) => (
               <motion.button key={key} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
